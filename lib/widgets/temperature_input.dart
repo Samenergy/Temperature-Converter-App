@@ -5,7 +5,7 @@ class TemperatureInput extends StatelessWidget {
   final TextEditingController controller;
   final Function(String) onChanged;
 
-  TemperatureInput({
+  const TemperatureInput({super.key, 
     required this.label,
     required this.controller,
     required this.onChanged,

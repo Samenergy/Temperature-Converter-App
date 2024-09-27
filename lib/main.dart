@@ -6,6 +6,8 @@ void main() {
 }
 
 class TemperatureConverterApp extends StatelessWidget {
+  const TemperatureConverterApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,6 +23,8 @@ class TemperatureConverterApp extends StatelessWidget {
 }
 
 class TemperatureConverterScreen extends StatefulWidget {
+  const TemperatureConverterScreen({super.key});
+
   @override
   _TemperatureConverterScreenState createState() =>
       _TemperatureConverterScreenState();
@@ -31,7 +35,7 @@ class _TemperatureConverterScreenState
   String _inputValue = '';
   String _convertedValue = '0';
   bool _isFahrenheit = true;
-  List<String> _conversionHistory = []; // Conversion history log
+  final List<String> _conversionHistory = []; // Conversion history log
 
   // Method to convert temperature
   void _convertTemperature() {
@@ -68,20 +72,20 @@ class _TemperatureConverterScreenState
             Container(
               color: Colors.redAccent,
               width: double.infinity,
-              padding: EdgeInsets.symmetric(vertical: 30),
+              padding: const EdgeInsets.symmetric(vertical: 30),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       _isFahrenheit ? 'FAHRENHEIT' : 'CELSIUS',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     // Input TextField
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -95,13 +99,13 @@ class _TemperatureConverterScreenState
                             _inputValue = value;
                           });
                         },
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 40,
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.center,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Enter Value',
                           hintStyle: TextStyle(color: Colors.white54),
                           enabledBorder: UnderlineInputBorder(
@@ -113,14 +117,14 @@ class _TemperatureConverterScreenState
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: _convertTemperature,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.redAccent,
                       ),
-                      child: Text(
+                      child: const Text(
                         'Convert',
                         style: TextStyle(fontSize: 18),
                       ),
@@ -132,23 +136,23 @@ class _TemperatureConverterScreenState
             Container(
               color: Colors.white,
               width: double.infinity,
-              padding: EdgeInsets.symmetric(vertical: 30),
+              padding: const EdgeInsets.symmetric(vertical: 30),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       _isFahrenheit ? 'CELSIUS' : 'FAHRENHEIT',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.redAccent,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       _convertedValue,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.redAccent,
                         fontSize: 80,
                         fontWeight: FontWeight.bold,
@@ -159,7 +163,8 @@ class _TemperatureConverterScreenState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -171,10 +176,16 @@ class _TemperatureConverterScreenState
                       });
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: _isFahrenheit ? Colors.redAccent : Colors.grey,
+                      backgroundColor:
+                          _isFahrenheit ? Colors.redAccent : Colors.grey,
                     ),
-                    child: Text('Fahrenheit'
-                    
+                    child: const Text(
+                      'Fahrenheit',
+                      style: TextStyle(
+                        fontSize: 15, // Increase font size
+                        fontWeight: FontWeight.bold, // Bold text
+                        color: Colors.white, // Blue color
+                      ),
                     ),
                   ),
                   ElevatedButton(
@@ -185,15 +196,22 @@ class _TemperatureConverterScreenState
                       });
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: !_isFahrenheit ? Colors.redAccent : Colors.grey,
+                      backgroundColor:
+                          !_isFahrenheit ? Colors.redAccent : Colors.grey,
                     ),
-                    child: Text('Celsius'),
+                    child: const Text('Celsius',
+                    style: TextStyle(
+                        fontSize: 15, // Increase font size
+                        fontWeight: FontWeight.bold, // Bold text
+                        color: Colors.white, // Blue color
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Conversion History',
               style: TextStyle(
                 color: Colors.redAccent,
@@ -201,17 +219,17 @@ class _TemperatureConverterScreenState
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             // Display conversion history
             Container(
               height: 200,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: ListView.builder(
                 itemCount: _conversionHistory.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(_conversionHistory[index]),
-                    leading: Icon(Icons.history, color: Colors.redAccent),
+                    leading: const Icon(Icons.history, color: Colors.redAccent),
                   );
                 },
               ),
