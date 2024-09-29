@@ -19,11 +19,11 @@ The **Temperature Converter App** is a simple Flutter application that converts 
 ### Installation and Setup
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/temperature_converter_app.git
+   git clone https://github.com/Samenergy/Temperature-Converter-App
    ```
 2. **Navigate to the project directory**:
    ```bash
-   cd temperature_converter_app
+   cd Temperature-Converter-App
    ```
 3. **Install the required dependencies**:
    ```bash
